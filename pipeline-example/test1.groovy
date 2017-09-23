@@ -1,3 +1,8 @@
+properties(
+    [parameters([choice(choices: ["A", "B", "C"].join("\n"),
+    description: 'Some choice parameter', 
+    name: 'SOME_CHOICE')])])
+
 node('slave1') {
     echo 'Hello World'
     echo "workspace=${env.WORKSPACE}"
