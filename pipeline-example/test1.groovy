@@ -9,7 +9,7 @@ node('slave1') {
     echo 'Hello World'
     echo "workspace=${env.WORKSPACE}"
 
-    env.WORKBASE = env.WORKSPACE.replace(env.JOB_NAME, '')
+    env.WORKBASE = env.WORKSPACE.replace(/${env.JOB_NAME}(@\d+)?$/, '')
     echo "workbase=${env.WORKBASE}"
 
     dir (env.WORKSPACE)
