@@ -5,7 +5,7 @@ node('slave1') {
     dir (env.WORKSPACE)
     {
         fileOperations([fileCreateOperation(fileContent: '1234', fileName: 'a.txt')])
-        sleep time: 10, unit: 'MINUTES'
+        //sleep time: 10, unit: 'MINUTES'
         echo "I'm sleeping..."
     }
 }
