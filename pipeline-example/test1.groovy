@@ -1,7 +1,9 @@
-properties(
-    [parameters([choice(choices: ["A", "B", "C"].join("\n"),
-    description: 'Some choice parameter', 
-    name: 'SOME_CHOICE')])])
+properties([
+    parameters([
+        string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment', ),
+        choice(name: 'SOME_CHOICE', choices: ["A", "B", "C"].join("\n"), description: 'Some choice parameter',),
+    ])
+)
 
 node('slave1') {
     echo 'Hello World'
