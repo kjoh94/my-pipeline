@@ -10,7 +10,7 @@ node('slave1') {
     echo "WORKSPACE=${env.WORKSPACE}"
     echo "JOB_NAME=${env.JOB_NAME}"
 
-    env.WORKBASE = env.WORKSPACE.replaceFirst(/${env.JOB_NAME}(@\d+)?\/$/, '')
+    env.WORKBASE = env.WORKSPACE.replaceFirst(/${env.JOB_NAME}(@\d+)?\/?$/, '')
     env.WORKSPACE = "${env.WORKBASE}/${env.JOB_NAME}-${env.EXECUTOR_NUMBER}"
     echo "WORKSPACE=${env.WORKSPACE}"
     
