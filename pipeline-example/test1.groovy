@@ -1,7 +1,7 @@
 properties([
     parameters([
-        string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment', ),
-        choice(name: 'SOME_CHOICE', choices: ["A", "B", "C"].join("\n"), description: 'Some choice parameter',),
+        string(name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment' ),
+        choice(name: 'SOME_CHOICE', choices: ["A", "B", "C"].join("\n"), description: 'Some choice parameter'),
     ])
 ])
 
