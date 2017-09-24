@@ -27,10 +27,12 @@ node('slave1') {
         }
         echo "USERNAME=${env.USERID}"
 
-        withCredentials([usernamePassword(credentialsId: '97dd51f7-a592-4145-90fd-efff461f8c05', usernameVariable: 'P4PORT', passwordVariable: 'PASSWORD')]) {
-            env.USERID = P4PORT
+        withCredentials([usernamePassword(credentialsId: '97dd51f7-a592-4145-90fd-efff461f8c05', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD', p4portVariable: 'P4PORT')]) {
+            env.USERID = USERNAME
+            env.P4PORT = P4PORT
         }
         echo "USERNAME=${env.USERID}"
+        echo "P4PORT=${env.P4PORT}"
 
     }
 
