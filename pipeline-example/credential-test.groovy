@@ -26,7 +26,7 @@ node('slave1') {
             sh 'echo $PASSWORD'
             // also available as a Groovy variable—note double quotes for string interpolation
             echo "$USERNAME"
-            env.AMAZON_USER = ${USERNAME}
+            env.AMAZON_USER = USERNAME
         }
         echo "USERNAME=${env.AMAZON_USER}"
     }
