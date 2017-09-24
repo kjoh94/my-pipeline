@@ -21,14 +21,17 @@ node('slave1') {
     }
 
     stage ('credential-test') {
-        withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-            // available as an env variable, but will be masked if you try to print it out any which way
+        withCredentials([usernamePassword(credentialsId: '10624a7a-4c9d-4c81-8442-9ff5a2c027de', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             sh 'echo $PASSWORD'
-            // also available as a Groovy variable—note double quotes for string interpolation
-            echo "$USERNAME"
-            env.AMAZON_USER = USERNAME
+            env.USERID = USERNAME
         }
-        echo "USERNAME=${env.AMAZON_USER}"
+        echo "USERNAME=${env.USERID}"
+
+        withCredentials([perforcePasswordCredential(credentialsId: '97dd51f7-a592-4145-90fd-efff461f8c05', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+            env.USERID = USERNAME
+        }
+        echo "USERNAME=${env.USERID}"
+
     }
 
 }
