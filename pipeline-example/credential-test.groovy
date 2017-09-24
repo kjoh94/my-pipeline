@@ -27,6 +27,7 @@ node('slave1') {
             // also available as a Groovy variable—note double quotes for string interpolation
             echo "$USERNAME"
         }
+        echo "USERNAME=$USERNAME"
     }
 
 }
