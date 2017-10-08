@@ -22,4 +22,6 @@ node('slave1') {
         sleep time: 10, unit: 'MINUTES'
         echo "I'm sleeping..."
     }
+    
+    // comment
 }
